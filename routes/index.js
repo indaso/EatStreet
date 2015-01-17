@@ -79,19 +79,22 @@ router.get('/map', function (req, res) {
 				all_coords.push(coord);
 				sumX += parseFloat(members[i].latitude);
 				sumY += parseFloat(members[i].longitude);
+				console.log(sumX);
+				console.log(sumY);
 			}
+
 			centerX = sumX / members.length;
 			centerY = sumY / members.length;
-			var center = [centerX, centerY];
 
 			console.log("Center X : " + centerX);
 			console.log("Center Y : " + centerY);
 			console.log(all_coords);
 
-			res.render('index', {
+			res.render('map', {
 				title: 'MAP',
-				coords: all_coords,
-				center: center
+				coords: JSON.stringify(all_coords),
+				centerX: centerX,
+				centerY: centerY
 			});
 		}
 	});

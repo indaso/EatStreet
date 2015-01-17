@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 Location Suggestions:
+  br
+  ul 
+    each n, index in names
+      li= n
+      p Address:
+      p= addresses[index]
+      p Distance:
+      p= distances[index]
+      p Phone Number:
+      p= phones[index]
+      p Yelp Rating:
+      p= ratings[index]

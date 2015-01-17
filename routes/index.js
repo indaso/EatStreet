@@ -11,30 +11,49 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
 	var db = req.db;
-
-	console.log(db);
-
+	var users = db.get('users');
 	var name = req.body.name;
-	var groupId = Math.floor(Math.random() * 10000);
+	var groupName = req.body.newgroup;
+	var username = req.body.username;
+	var groupId = req.body.groupid;
+	var latitude = req.body.latitude;
+	var longitude = req.body.longitude;
+	
+	if (name != "" && groupName != "") {	
+		console.log("HERE");
+		var new_group = {
+			"groupid": groupName,
+			"members": [{"name": name, "latitude": latitude, "longitude":longitude}]
+		};
+		users.insert(new_group, function (err, doc) {
+			if (err)
+				res.send("Error: Unable to add information to the database");
+			else {
+				res.redirect("map");
+			}
+		});
+	}
 
-	var group = db.get('users');
-
-
-
-	var new_group = {
-		"groupid": groupId,
-		"members": [{
-			"name": name
-		}]
-	};
-	group.insert(new_group, function (err, doc) {
-		if (err)
-			res.send("Error: Unable to add information to the database");
-		else {
-			console.log("ADDED");
-			res.redirect("map");
+	else if (username != "" && groupId != "") {
+		console.log("JOIN GROUP");
+		var currGroup = users.find({"groupid":groupId});
+		if (currGroup == "") {
+			console.log("Error: Unable to find group in the database");
 		}
-	});
+		else {
+			var new_member = {"name":username,"latitude":latitude,"longitude":longitude};
+ 			users.update({"groupid":groupId},{"$push":{"members":new_member}}, function (err, doc) {
+				if (err)
+					res.send("Error: Unable to add information to the database");
+				else {
+					res.redirect("map");
+				}
+			});
+		}
+	}
+
+
+	
 });
 
 router.get('/map', function (req, res) {

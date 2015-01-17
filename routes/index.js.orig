@@ -1,0 +1,79 @@
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function (req, res) {
+	res.render('index', {
+		title: 'Express'
+	});
+});
+
+<<<<<<< HEAD
+router.post('/createGroup', function (req, res) {
+=======
+
+router.post('/', function(req, res) {
+>>>>>>> 9fa9523ea9d5151af9f35d47c11d09b57a1d0051
+	var db = req.db;
+
+	console.log(db);
+
+	var name = req.body.name;
+	var groupId = Math.floor(Math.random() * 10000);
+
+	var group = db.get('users');
+
+	
+	var latitude, longitude;
+
+	if (navigator.geolocation) {
+		navigator.geolocation.watchPosition(function showPosition(position) {
+			latitude = position.coords.latitude;
+			longitude = position.coords.longitude;
+		});
+	}
+	else {
+		console.log("ERROR");
+	}
+
+<<<<<<< HEAD
+	var newuser = {
+		"_id": groupId,
+		"members": [{
+			"name": name
+		}]
+	};
+
+	group.insert(newuser, function (err, doc) {
+		if (err)
+			res.send("Error: Unable to add information to the database");
+		else {
+			res.redirect("map");
+		}
+	})
+});
+
+router.get('/map', function (req, res) {
+
+});
+module.exports = router;
+=======
+
+	var new_group = {"groupid":groupId,"members":[{"name":name}]};
+	group.insert(new_group,function(err, doc) {
+			if (err)
+				res.send("Error: Unable to add information to the database");
+			else {
+				console.log("ADDED");
+				res.redirect("map");
+			}
+		});
+});
+
+router.get('/map',function(req,res) {
+	res.render('index', { title: 'MAP' });
+});
+
+
+module.exports = router;
+>>>>>>> 9fa9523ea9d5151af9f35d47c11d09b57a1d0051

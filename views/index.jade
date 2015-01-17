@@ -3,3 +3,14 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  br
+  br
+  form(method='post')
+    input(type='text', name='name')
+    button(type='submit') Create Group
+    br
+    br
+    input(type='text', name='username')
+    input(type='text', name='groupid')
+    button(type='submit') Join Group
+

@@ -22,18 +22,18 @@ router.post('/locations', function (req, res) {
 	var testgroup = 'dog';
 	var groupname = req.body.groupname;
 	console.log(groupname);
+	/*
+		//Connect to the db
+		MongoClient.connect("mongodb://localhost:27017/eatstreet", function (err, db) {
+			if (!err) {
+				console.log("We are connected");
+			}
+			var collection = db.collection(testgroup);
+			console.log(collection);
 
-	//Connect to the db
-	MongoClient.connect("mongodb://localhost:27017/eatstreet", function (err, db) {
-		if (!err) {
-			console.log("We are connected");
-		}
-		var collection = db.collection(testgroup);
-		console.log(collection);
+			collection.find().toArray(function (err, items) {});
 
-		collection.find().toArray(function (err, items) {});
-
-	});
+		});*/
 
 	//get yelp api suggestions
 	var namelist = [];

@@ -36,10 +36,18 @@
 
         <div class="site-wrapper-inner" style="background: url('/images/cover.jpg') no-repeat scroll 0px 100%"> 
 
-          <div class="cover-container" >
+          <div class="cover-container">
+            <div class="masthead clearfix">
+              <div class="inner">
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="/">Home</a></li>
+                  <li><a href="/locations">Location</a></li>
+                </ul>
+              </div>
+            </div>
             <div class="inner cover">
               <h1 class="cover-heading">EatStreet</h1>
-              <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+              <p class="lead">Connect with your friends and find a commonplace to meet! EatStreet works by finding the best rated restaurants within a short radius of the center point of your group.</p>
               <p class="lead">
                 <form method="post" action="/">
                   <div style="float:left">
@@ -47,12 +55,12 @@
                     <input type="text" id="newgroup" name="newgroup" placeholder="Enter a group name"><br>
                     <input type="hidden" name="longitude" id="longitude" value="">
                     <input type="hidden" name="latitude" id="latitude" value="">
-                    <button type="submit" id="submitButton">Create Group</button>
+                    <button type="submit" class="btn btn-lg btn-default">Create Group</button>
                   </div>
                   <div style="float:right">
                     <input type="text" id="name" name="username" placeholder="Enter your name"><br>
                     <input type="text" id="newgroup" name="groupid" placeholder="Enter your Group ID"><br>
-                    <button type="submit" id="submitButton">Join Group</button>
+                    <button type="submit" class="btn btn-lg btn-default">Join Group</button>
                   </div>
                 </form> 
               </p>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Location</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/cover.css" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/style.css" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  </head>
+  <body>
+    <div class="site-wrapper" >
+
+        <div class="site-wrapper-inner" style="background: url('/images/cover.jpg') no-repeat scroll 0px 100%"> 
+
+          <div class="cover-container">
+            <div class="masthead clearfix">
+              <div class="inner">
+                <ul class="nav masthead-nav">
+                  <li><a href="/">Home</a></li>
+                  <li class="active"><a href="/locations">Location</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="inner-cover">
+              <h1 class="cover-heading">Get our location suggestions!</h1><br>
+              <p class="lead">Enter your group name</p>
+              <p class="lead">
+                <form method="post" action="/locations">
+                    <input type="text" id="groupname" name="groupname" placeholder="Group Name"><br>
+                    <button type="submit" class="btn btn-lg btn-default">Enter Group</button>
+                </form> 
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+  </body>
+</html>

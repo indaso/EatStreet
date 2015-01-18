@@ -59,49 +59,20 @@ router.post('/', function (req, res) {
 	
 });
 
-router.get('/map', function (req, res) {
+
+router.post('/deleteGroup', function (req, res) {
 	var db = req.db;
 	var users = db.get('users');
-	var groupid = req.session.group;
-	console.log("GROUP ID: " + groupid);
-	var sumX = 0;
-	var sumY = 0;
-	var centerX;
-	var centerY;
-	var all_coords = [];
-
-	users.findOne({"groupid":groupid}, function(err, document) {
+	console.log("HEREwefe");
+	var group = req.session.group;
+	users.remove({"groupid":group},function(err,doc) {
 		if (err)
 			throw err;
 		else {
-			var members = document.members;
-			for (var i = 0; i < members.length; i++	) {
-				var coord = [parseFloat(members[i].latitude),parseFloat(members[i].longitude)];
-				all_coords.push(coord);
-				sumX += parseFloat(members[i].latitude);
-				sumY += parseFloat(members[i].longitude);
-				console.log(sumX);
-				console.log(sumY);
-			}
-
-			centerX = sumX / members.length;
-			centerY = sumY / members.length;
-
-			console.log("Center X : " + centerX);
-			console.log("Center Y : " + centerY);
-			console.log(all_coords);
-
-			res.render('map', {
-				title: 'MAP',
-				coords: JSON.stringify(all_coords),
-				centerX: centerX,
-				centerY: centerY
-			});
+			console.log("HERE");
+			res.redirect("/");
 		}
 	});
-	
-	
 });
-
 
 module.exports = router;

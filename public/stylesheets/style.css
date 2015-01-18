@@ -1,8 +1,32 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* Text Box */
+#name {
+	width:300px;
+	height:45px;
+	padding-left:15px;
+	border-radius:10px;
+	margin-top:30px;
+	font-size:20px;
+	color:black;
 }
-
-a {
-  color: #00B7FF;
+#newgroup {
+	width:300px;
+	height:45px;
+	padding-left:15px;
+	border-radius:10px;
+	margin-top:10px;
+	font-size:20px;
+	color:black;
+}
+#submitButton {
+	width:200px;
+	height:45px;
+	padding-left:15px;
+	border-radius:10px;
+	margin-top:10px;
+	font-size:20px;
+	color:black;
+}
+#mapholder {
+	margin-top:30px;
+	margin-left:20px;
 }

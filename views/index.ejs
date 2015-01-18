@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Express</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/cover.css" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  </head>
+  <body>
+    <script>
+      window.onload = function() {
+        getLocation();
+      }
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          console.log("Geolocation is not supported by this browser.");
+        }
+      }
+      function showPosition(position) {
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+        document.getElementById('latitude').value = lat;
+        document.getElementById('longitude').value = long;
+      }
+    </script>
+   
+
+    <div class="site-wrapper" >
+
+        <div class="site-wrapper-inner" style="background: url('/images/cover.jpg') no-repeat scroll 0px 100%"> 
+
+          <div class="cover-container" >
+            <div class="inner cover">
+              <h1 class="cover-heading">EatStreet</h1>
+              <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+              <p class="lead">
+                <form method="post" action="/">
+                  <div style="float:left">
+                    <input type="text" id="name" name="name" placeholder="Enter your name"><br>
+                    <input type="text" id="newgroup" name="newgroup" placeholder="Enter a group name"><br>
+                    <input type="hidden" name="longitude" id="longitude" value="">
+                    <input type="hidden" name="latitude" id="latitude" value="">
+                    <button type="submit" id="submitButton">Create Group</button>
+                  </div>
+                  <div style="float:right">
+                    <input type="text" id="name" name="username" placeholder="Enter your name"><br>
+                    <input type="text" id="newgroup" name="groupid" placeholder="Enter your Group ID"><br>
+                    <button type="submit" id="submitButton">Join Group</button>
+                  </div>
+                </form> 
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

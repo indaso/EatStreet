@@ -20,6 +20,7 @@ router.post('/', function (req, res) {
 	var latitude = req.body.latitude;
 	var longitude = req.body.longitude;
 
+	console.log("HERE");
 	if (name != "" && groupName != "") {	
 		var new_group = {
 			"groupid": groupName,

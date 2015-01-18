@@ -10,13 +10,26 @@ var engine = require('ejs-locals');
 // New Code
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('mongodb://heroku_app33317238:lqhcpvmhumb03jj07n67ripbi7@ds031581.mongolab.com:31581/heroku_app33317238');
+
+
+//var db = monk('localhost:27017/eatstreet');
+//var db = monk('mongodb://heroku_app33317238:lqhcpvmhumb03jj07n67ripbi7@ds031581.mongolab.com:31581/heroku_app33317238');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var yelp_routes = require('./routes/yelp');
 
 var app = express();
+
+var env = process.env.NODE_ENV || 'development';
+if ('development' == env) {
+    var db = monk('localhost:27017/eatstreet');
+} else {
+    var db = monk(
+        'mongodb://heroku_app33317238:lqhcpvmhumb03jj07n67ripbi7@ds031581.mongolab.com:31581/heroku_app33317238'
+    );
+}
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

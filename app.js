@@ -10,7 +10,7 @@ var engine = require('ejs-locals');
 // New Code
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/eatstreet');
+var db = monk('mongodb://heroku_app33317238:lqhcpvmhumb03jj07n67ripbi7@ds031581.mongolab.com:31581/heroku_app33317238');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -31,7 +31,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: 'hsust'}));
+app.use(session({
+    secret: 'hsust'
+}));
 
 // Make our db accessible to our router
 app.use(function (req, res, next) {
